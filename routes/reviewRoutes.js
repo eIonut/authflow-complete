@@ -1,6 +1,5 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { authenticateUser } = require('../middleware/authentication');
 
 const {
   createReview,
@@ -8,14 +7,14 @@ const {
   getSingleReview,
   updateReview,
   deleteReview,
-} = require('../controllers/reviewController');
+} = require("../controllers/reviewController");
 
-router.route('/').post(authenticateUser, createReview).get(getAllReviews);
+router.route("/").post(createReview).get(getAllReviews);
 
 router
-  .route('/:id')
+  .route("/:id")
   .get(getSingleReview)
-  .patch(authenticateUser, updateReview)
-  .delete(authenticateUser, deleteReview);
+  .patch(updateReview)
+  .delete(deleteReview);
 
 module.exports = router;
