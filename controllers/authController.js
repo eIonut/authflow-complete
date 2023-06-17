@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const Token = require("../models/Token");
 const { StatusCodes } = require("http-status-codes");
+const jwt = require("jsonwebtoken");
 const CustomError = require("../errors");
 const {
   attachCookiesToResponse,
