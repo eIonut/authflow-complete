@@ -36,9 +36,16 @@ app.use(
   })
 );
 app.use(helmet());
-app.use(cors());
+app.use(cors({ credentials: true }));
 app.use(xss());
 app.use(mongoSanitize());
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+});
 
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
