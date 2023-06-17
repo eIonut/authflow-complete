@@ -25,6 +25,7 @@ const attachCookiesToResponse = ({ res, user, refreshToken }) => {
     secure: process.env.NODE_ENV === "production",
     signed: true,
     sameSite: "None",
+    domain: ".e-commerce-frontend-ajai.vercel.app",
     expires: new Date(Date.now() + oneDay),
   });
 
@@ -33,6 +34,7 @@ const attachCookiesToResponse = ({ res, user, refreshToken }) => {
     secure: process.env.NODE_ENV === "production",
     signed: true,
     sameSite: "None",
+    domain: ".e-commerce-frontend-ajai.vercel.app",
     expires: new Date(Date.now() + longerExp),
   });
 };
