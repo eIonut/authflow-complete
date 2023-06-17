@@ -121,6 +121,11 @@ const login = async (req, res) => {
   res.status(StatusCodes.OK).json({ user: tokenUser });
 };
 
+const createJWT = ({ payload }) => {
+  const token = jwt.sign(payload, process.env.JWT_SECRET);
+  return token;
+};
+
 const logout = async (req, res) => {
   await Token.findOneAndDelete({ user: req.user.userId });
 
