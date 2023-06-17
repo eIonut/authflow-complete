@@ -36,7 +36,7 @@ app.use(
   })
 );
 app.use(helmet());
-app.use(cors({ credentials: true }));
+app.use(cors({ origin: "http://localhost:4200", credentials: true }));
 app.use(xss());
 app.use(mongoSanitize());
 app.use(function (req, res, next) {
