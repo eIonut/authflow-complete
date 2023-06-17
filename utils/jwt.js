@@ -24,7 +24,6 @@ const attachCookiesToResponse = ({ res, user, refreshToken }) => {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     signed: true,
-    sameSite: "None",
     expires: new Date(Date.now() + oneDay),
   });
 
@@ -32,7 +31,6 @@ const attachCookiesToResponse = ({ res, user, refreshToken }) => {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     signed: true,
-    sameSite: "None",
     expires: new Date(Date.now() + longerExp),
   });
 };
