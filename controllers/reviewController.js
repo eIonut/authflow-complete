@@ -5,7 +5,7 @@ const { StatusCodes } = require("http-status-codes");
 const CustomError = require("../errors");
 
 const createReview = async (req, res) => {
-  const { product: productId } = req.body;
+  const { product: productId, userId } = req.body;
 
   const isValidProduct = await Product.findOne({ _id: productId });
 
@@ -15,7 +15,7 @@ const createReview = async (req, res) => {
 
   const alreadySubmitted = await Review.findOne({
     product: productId,
-    user: req.user.userId,
+    user: userId,
   });
 
   if (alreadySubmitted) {
